@@ -4,7 +4,7 @@ from django.conf import  settings
 from realstateapp.models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-#from realstateapp.form import *
+from realstateapp.form import *
 from .models import * 
 from django.contrib.auth import logout
 from django.core.mail import EmailMessage
@@ -234,28 +234,71 @@ def make_active_agent(request):
 		s='active'
 		u= 'not active'
 		m= request.POST.get('set')
-		if agent_account.objects.filter(agent_id=m):
-			t=agent_account.objects.filter(agent_id=m)
-			for i in t:
-				i.status=s
-				i.save()
-		agent=agent_account.objects.filter(status=s)
-		notagent=agent_account.objects.filter(status=u)
-		return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
+		try:
+			if agent_account.objects.filter(agent_id=m):
+				t=agent_account.objects.filter(agent_id=m)
+				for i in t:
+					i.status=s
+					i.save()
+				for i in t:
+					e=i.email
+					p=i.password
+					break
+				subject='Mail From Shri Raj Property'
+				msg= ''' Dear Agent,
+
+				You Account has been activated by the admin and
+				Your account Password is:- '''+p+''' 
+
+				Thanks & Regards
+				Shri Raj Property''' 
+						
+
+				email = EmailMessage(subject, msg, to=[e])
+				email.send()	
+				agent=agent_account.objects.filter(status=s)
+				notagent=agent_account.objects.filter(status=u)
+				return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
+		except Exception:
+			agent=agent_account.objects.filter(status=s)
+			notagent=agent_account.objects.filter(status=u)
+			return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
 @csrf_exempt
 def make_deactive_agent(request):
 	if request.method=="POST":
 		s='active'
 		u= 'not active'
 		m= request.POST.get('set')
-		if agent_account.objects.filter(agent_id=m):
-			t=agent_account.objects.filter(agent_id=m)
-			for i in t:
-				i.status=u
-				i.save()
-		agent=agent_account.objects.filter(status=s)
-		notagent=agent_account.objects.filter(status=u)
-		return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
+		try:
+			if agent_account.objects.filter(agent_id=m):
+				t=agent_account.objects.filter(agent_id=m)
+				for i in t:
+					i.status=u
+					i.save()
+				for i in t:
+					e=i.email
+					p=i.password
+					break
+				subject='Mail From Shri Raj Property'
+				msg= ''' Dear Agent,
+
+				Your account has been deavtivated by the Admin.
+				For more information contact XXXXXX.
+
+				Thanks & Regards
+				Shri Raj Property''' 
+						
+
+				email = EmailMessage(subject, msg, to=[e])
+				email.send()	
+				agent=agent_account.objects.filter(status=s)
+				notagent=agent_account.objects.filter(status=u)
+				return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
+		except Exception:
+			agent=agent_account.objects.filter(status=s)
+			notagent=agent_account.objects.filter(status=u)
+			return render(request, 'agentsdata.html', {'active': agent, 'deactive': notagent})
+
 @csrf_exempt
 def openaddproperty(request):
 	if request.method=="POST":
