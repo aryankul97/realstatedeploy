@@ -4,8 +4,8 @@ from django.conf import  settings
 from realstateapp.models import *
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-#from realstateapp.form import *
-from .models import * 
+from realstateapp.form import *
+from realstateapp.models import * 
 from django.contrib.auth import logout
 from django.core.mail import EmailMessage
 from django.core.mail import BadHeaderError, send_mail
@@ -765,7 +765,10 @@ def openproperty(request):
 	return render(request,'property-details.html',dic)
 @csrf_exempt
 def blog_page(request):
-	return render(request, 'enterblog.html',{})
+	if request.method=="POST":
+		return render(request, 'enterblog.html',{})
+	else:
+		return redirect('/error/')
 
 @csrf_exempt
 def post_blog(request):
