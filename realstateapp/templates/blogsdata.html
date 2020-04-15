@@ -2,15 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <title> Shri Raj Property &mdash; User Registration</title>
-
+    <title> Shri Raj Property &mdash; Agent Data</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700,900|Roboto+Mono:300,400,500"> 
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
-    <link rel="stylesheet" href="{% static 'w3.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
@@ -26,15 +24,25 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="{% static 'css/mainreg.css' %}" rel="stylesheet" media="all">
-      <link href="{% static 'vendor/selectreg/select2.min.css' %}" rel="stylesheet" media="all">
-    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
-      <!-- Icons font CSS-->
-    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
-    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <!--===================================LOHIN============================================================-->
+  <link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/utillogin.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'css/mainlogin.css' %}">
+  <!--==========ENDLOGIN=========================================================================--> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
   </head>
   <body>
   
@@ -82,34 +90,8 @@
 
                 <ul class="site-menu js-clone-nav d-none d-lg-block">
                   <li>
-                    <a href="\index\">Home</a>
+                    <a href="\index\">Logout</a>
                   </li>
-                  <li><a href="\blog\">Blog</a></li>
-                  <li><a href="\about\">About</a></li>
-                  <li><a href="\contact\">Contact</a></li>
-                  {% if b == h %}
-                  <li class="has-children">
-                    <a href="#">Agents</a> 
-                    <ul class="dropdown">
-                      <li><a href="\registration\">Sign Up</a></li>
-                      <li><a href="\login\">Login</a></li>
-                    </ul>
-                  </li>
-                  <li class="has-children active">
-                    <a href="#">Users</a>
-                    <ul class="dropdown">
-                      <li><a href="\userregistation\">Sign Up</a></li>
-                      <li><a href="\loginformuser\">Login</a></li>
-                    </ul>
-                      {% else %}
-                        <li class="has-children">
-                        <a href="" style="padding-right:20px;"><i class="fa fa-user" style="font-size:25px;"></i> Settings</a>
-                        <ul class="dropdown">
-                          <li><a href="/openuseraccount/">My Account</a></li>
-                          <li><a href="\Log\">Logout</a></li>
-                        </ul>
-                      </li>
-                  </li>{% endif %}
                 </ul>
               </nav>
             </div>
@@ -120,54 +102,57 @@
       </div>
     </div>
 
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({% static 'images/orange1.jpg' %});background-size:100% 500px;" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url({% static 'images/hero_bg_2.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-10">
-            <h1 class="mb-2">User Registration</h1>
-            <div><a href="\index\">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">User Registration</strong></div>
+            <h1 class="mb-2">Agent Data</h1>
+            <div><a href="\index\">Home</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">Admin Pannel</strong></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="site-section">
-  <div class="container">
-      <div class="w3-container" style="padding-top:10px;padding-bottom:10px;border-radius:15px;">
-        <h3 style="font-size:15px;color:red;">{{message}}</h3>
-      </div>
-      <div class="w3-container w3-black" style="padding-top:10px;padding-bottom:10px;border-radius:15px;">
-        <h3 style="font-size:15px;color:white;">Required feilds are marked with *</h3>
-      </div>
-      
-        <form class="w3-container" style="padding-top:20px;" method="POST" action="\user_signup\">{% csrf_token %}
-          <label class="w3-text-teal" style="margin-top:15px;"><b>Name *</b></label>
-          <input class="w3-input w3-border w3-light-black" style="border-radius:15px;" type="text" name="name" placeholder="Enter Here...." required>
+    
+  <div class="site-section">
+      <div class="container">
+        <div class="container">      
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Agent ID</th>
+                  <th>BLOG NO</th>
+                  <th>SUBJECT</th>
+                  <th>DESCRIPTION</th>
+                  <th>DATE</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for i in dic %}
+                <tr>
+                  <td>{{i.agent_id}}</td>
+                  <td>{{i.blog_no}}</td>
+                  <td>{{i.subject}}</td>
+                  <td>{{i.Desc}}</td>
+                  <td>{{i.date}}</td>
+              
+                  <td>{% csrf_token %}
+                  <form action="\delete_blog\" method="POST">
+                    <input type="text" name="set" value="{{i.blog_no}}">
+                    <button style="color:green; ">delete</button></td>
+                  </form>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-          <label class="w3-text-teal" style="margin-top:15px;"><b>Gender *</b></label>
-          <select name="gender" class="w3-input w3-border w3-light-black" style="border-radius:15px;">
-            <option disabled="disabled" selected="selected" >Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-
-          <label class="w3-text-teal" style="margin-top:15px;"><b>Email *</b></label>
-          <input class="w3-input w3-border w3-light-black" style="border-radius:15px;" name="email" type="email" placeholder="Enter Here...." required>
-
-          <label class="w3-text-teal" style="margin-top:15px;"><b>Address *</b></label>
-          <input class="w3-input w3-border w3-light-black" style="border-radius:15px;" name="address" type="text" placeholder="Enter Here...." required>
-
-          <label class="w3-text-teal" style="margin-top:15px;"><b>City &amp; State *</b></label>
-          <input class="w3-input w3-border w3-light-black" style="border-radius:15px;" name="city" type="text" placeholder="Enter Here...." required>
-
-          <label class="w3-text-teal" style="margin-top:15px;"><b>Phone *</b></label>
-          <input class="w3-input w3-border w3-light-black" style="border-radius:15px;" name="phone" type="number" placeholder="Enter Here...." required>
-
-          <button class="w3-btn w3-orange w3-hover-black" style="margin-top:20px;border-radius:15px;">Register</button>
-        </form>
       </div>
     </div>
+  </div>
 
     <footer class="site-footer">
       <div class="container">
@@ -203,7 +188,7 @@
                 </ul>
               </div>
             </div>
-
+<!--Table-->
 
           </div>
 
@@ -216,9 +201,30 @@
                   <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                   <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
                 </div>
-
+                 <div> 
             
+                    <!--Table-->
+<table class="table table-striped w-auto">
 
+  <!--Table head-->
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Position</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <
+
+
+                  </div>
           </div>
           
         </div>
@@ -226,7 +232,7 @@
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-             Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://funtouchit.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
+            Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://funtouchit.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>
@@ -251,7 +257,23 @@
   <script src="{% static 'js/aos.js' %}"></script>
 
   <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/globalreg.js' %}"></script>
-    
+  <!--====================login=========================================-->
+  <!--===============================================================================================-->
+  <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+  <script >
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+<!--===============================================================================================-->
+  <script src="{% static 'js/main.js' %}"></script>
+    {{ alert|safe }}
   </body>
 </html>
