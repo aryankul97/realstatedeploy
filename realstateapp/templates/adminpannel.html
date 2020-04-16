@@ -149,6 +149,13 @@
               <input type="submit" value="Post Blog" class="login100-form-btn w3-hover-black" style="background-color:#0693D8;">
            </form>
           </div>
+          <div class="column">
+            <form action="/allblogs_data/" method="POST">{% csrf_token %}
+              <input type="hidden" name="pass" value="1234">
+              <input type="submit" value="View AllBlogs" class="login100-form-btn w3-hover-black" style="background-color:#0693D8;">
+           </form>
+          </div>
+
 
 
       </div>
@@ -212,7 +219,7 @@
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-             Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://colorlib.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
+             Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://funtouchit.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>

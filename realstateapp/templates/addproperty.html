@@ -105,7 +105,7 @@
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-10">
             <h1 class="mb-2">Add Property</h1>
-            <div><a href="\index\">Admin Pannel</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">Add Property</strong></div>
+            <div><a href="\adminpannel\">Admin Pannel</a> <span class="mx-2 text-white">&bullet;</span> <strong class="text-white">Add Property</strong></div>
           </div>
         </div>
       </div>
@@ -168,6 +168,7 @@
                 <th>Property Price</th>
                 <th>Property Category</th>
                 <th>Property Built Year</th>
+                <th>Delete Property</th>
               </tr>
               {% for x in pdata %}
               <tr>
@@ -176,6 +177,11 @@
                 <td>{{ x.pprice|safe }}</td>
                 <td>{{ x.pcategory|safe }}</td>
                 <td>{{ x.pyear|safe }}</td>
+                <td>{% csrf_token %}
+                  <form action="\delete_property\" method="POST" style="color:red;">
+                    <input type="hidden" name="delete" value="{{ x.pid|safe }}">
+                    <button style="color:red; ">delete</button>
+                  </form></td>
               </tr>
               {% endfor %}
             </table>
@@ -241,7 +247,7 @@
           <div class="col-md-12">
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://colorlib.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
+            Copyright &copy;</script><script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="https://funtouchit.com" target="_blank" >Funtouch IT Solution Pvt Ltd.</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>

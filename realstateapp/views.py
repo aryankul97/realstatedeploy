@@ -209,6 +209,7 @@ def adminlogincheck(request):
 		e=request.POST.get('email')
 		p=request.POST.get('pass')
 		if e=="admin@homespace.com" and p=="1234":
+			request.session['user']=e
 			return render(request, 'adminpannel.html', {})
 		else:
 			b1='''<script type="text/javascript">
@@ -216,6 +217,9 @@ def adminlogincheck(request):
 			b2='''");</script>'''
 			alert=b1+'Login Failed'
 			return render(request, 'adminlogin.html', {'alert':alert})
+def adminpannel(request):
+	n=request.session['user']
+	return render(request, 'adminpannel.html',{} )
 @csrf_exempt
 def agentdata(request):
 	if request.method=="POST":
@@ -310,6 +314,23 @@ def openaddproperty(request):
 		return render(request, "addproperty.html",dic)
 	else:
 		return redirect('/error/')
+
+@csrf_exempt
+def delete_property(request):
+	if request.method=="POST":
+		n=request.session['user']
+		n=request.POST.get('delete')
+		if PropertyData.objects.filter(Property_ID=n):
+			obj=PropertyData.objects.filter(Property_ID=n)
+			for i in obj:
+				i.delete()
+			s=PropertyImagesData.objects.filter(Property_ID=n)
+			for j in s:
+				j.delete()
+			return HttpResponse("<script> alert('Property Is Deleted .!!'); window.location.replace('/adminpannel/') </script>")
+
+		else:
+			return HttpResponse("<script> alert('Property Is Not Deleted .!!'); window.location.replace('/openaddpropertycategory/') </script>")
 @csrf_exempt
 def openaddpropertycategory(request):
 	if request.method=="POST":
@@ -796,7 +817,21 @@ def agentblog(request):
 	dic=getagentinfo(agentid)
 	dic.update({'blogs':getblogs(agentid)})
 	return render(request, 'agentdesk.html', dic)
-	
+@csrf_exempt
+def allblogs_data(request):
+	if request.method=="POST":
+		n=request.POST.get('set')
+		obj=blog_table.objects.all()
+		return render(request, 'blogsdata.html',{'dic':obj})
+@csrf_exempt
+def delete_blog(request):
+	if request.method=="POST":
+		n=request.POST.get('set')
+		obj=blog_table.objects.filter(blog_no=n)
+		for i in obj:
+			i.delete()
+		return HttpResponse("<script> alert('Blog Is Deleted !!'); window.location.replace('/blog_posted/') </script>")
+
  		
 
 @csrf_exempt
@@ -811,7 +846,10 @@ def blog_page(request):
 		return render(request, 'enterblog.html',{})
 	else:
 		return redirect('/error/')
-
+@csrf_exempt
+def posted(request):
+	n=request.session['agent_id']
+	return render(request, 'enterblog.html',{})
 @csrf_exempt
 def post_blog(request):
 	if request.method=="POST":
@@ -852,7 +890,11 @@ def post_blog(request):
 				Desc=m
 				)
 			sv.save()
-			return HttpResponse("<script> alert('Your Blog Is Posted !!'); window.location.replace('/blog_page/') </script>")
+
+			return HttpResponse("<script> alert('Your Blog Is Posted !!'); window.location.replace('/blog_posted/')</script>")
+			
+def blog_posted(request):
+	return render(request,'adminpannel.html',{})
 
 def openmyblogs(request):
 	return render(request,'myblogs.html',{})
