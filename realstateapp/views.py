@@ -454,21 +454,24 @@ def agent_signup(request):
 
 				email = EmailMessage(subject, msg, to=[e])
 				email.send()
+
 				try:
 					sus='New Agent Register'
+
 					mess= ''' Hello sir,
 		This Person want to make your agent
 		detail of the person is here
 
-				'''+"Name :" +n+('\n')+"Gender :" +g+('\n')+"Mail ID :"+e+('\n')+"Phone no. :"+ph+('\n')+"Address :"+ad+('\n')+"City :"+c+('\n')+"Aadhar card no. :" +aa+"Facebook link :"+fb+('\n')+"linkedIn link :"+LI+('\n')+"Twitter link. :"+tw +'''
+		''' "Name :"+n+ ('\n') +"Gender :"+g+ ('\n')+"email :"+e+ ('\n')+"Address :"+ad+ ('\n')+"City :"+c+('\n')+"Phone :"+ph+ ('\n')+"Aadhar No. :"+aa+ ('\n') +"Facebook Link :"+fb+ ('\n') +"Twitter Link :"+tw+ ('\n') +"LinkedIn Link :"+LI+'''
 
 				Thanks & Regards
 				Shri Raj Property''' 
 
 
-			
+					
 					email = EmailMessage(sus, mess, to=['testm1214@gmail.com'])
 					email.send()
+					print('gooooo')
 					sv=agent_account(agent_id=uid,
 									name=n,
 									gender=g,
@@ -483,8 +486,9 @@ def agent_signup(request):
 									linkedin=LI,
 									status=status,
 									agentpic=m
-									  )
+									 )
 					sv.save()
+					print('hello')
 					message='You are successfully registered.'	
 					return render(request,'registration.html', {'message':message})
 				except Exception:
@@ -755,6 +759,7 @@ def send_mail_by_contact(request):
 	if request.method=="POST":
 		n= request.POST.get('name')
 		e= request.POST.get('email')
+		ph=request.POST.get('number')
 		s= request.POST.get('subject')
 		m= request.POST.get('message')
 		subject='Mail From Shri Raj Property'
@@ -763,14 +768,14 @@ def send_mail_by_contact(request):
 
 	Someone contact you, 
 	details are given below 
-'''+"Name :" +n+('\n')+"Mail ID :"+e+('\n')+"Subject :"+s+('\n')+"Message :"+m+'''
+'''+"Name :" +n+('\n')+"Mail ID :"+e+('\n')+"Phone Number :"+ph+('\n')+"Subject :"+s+('\n')+"Message :"+m+'''
 
 	Thanks & Regards
 	Shri Raj Property''' 
 
 		email = EmailMessage(subject, msg, to=['testm1214@gmail.com'])
 		email.send()
-		return HttpResponse("<script> alert('Hello sir, your message has been sent. Will be processed within 24 hours !!'); window.location.replace('/contact/') </script>")
+		return HttpResponse("<script> alert('Thanks for investing your precious Time here. You will get the response very soon  !!'); window.location.replace('/contact/') </script>")
 
 def openmyaccount(request):
 	return render(request,"myaccount.html",{})

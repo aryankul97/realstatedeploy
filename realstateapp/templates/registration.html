@@ -124,11 +124,13 @@
           <div class="col-md-8">
             <h2 class="text-white" style="font-size:50px;">Agent Registration</h2>
             <p class="lead text-white-5" style="font-size:35px;">Required feilds are marked with *</p>
-            <p class="lead text-white-5" style="font-size:35px;">{{message}}</p>
+            <p class="lead text-white-5" style="font-size:35px; color:red;">{{message}}</p>
           </div>
         <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="1000">
-          <form class="w3-container" style="padding-top:20px;" method="POST" action="\agent_signup\" enctype="multipart/form-data">{% csrf_token %}
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" type="text" name="name" placeholder="Name *" required>
+          <form class="w3-container" style="padding-top:20px;" method="POST" action="\agent_signup\" 
+          enctype="multipart/form-data">{% csrf_token %}
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" 
+            type="text" name="name" placeholder="Name *" required>
 
             <select name="gender" class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;">
               <option disabled="disabled" selected="selected" >Gender *</option>
@@ -137,23 +139,23 @@
               <option>Other</option>
             </select>
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="email" type="email" placeholder="Email *" required>
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="email" type="email" placeholder="Email *" required="">
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="address" type="text" placeholder="Address *" required>
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="address" type="text" placeholder="Address *" required="">
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="city" type="text" placeholder="City &amp; State *" required>
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="city" type="text" placeholder="City &amp; State *" required="">
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="phone" type="number" placeholder="Contact *" required>
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="phone" type="number" placeholder="Contact *" required="">
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="adhaar" type="number" placeholder="Adhaar Number *" required>
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="aadhar" type="number" placeholder="Adhaar Number *" required="">
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="facebook" type="text" placeholder="Facebook Link">
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="facebook" type="text" placeholder="Facebook Link" >
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="twitter" type="text" placeholder="Twitter Link">
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="twitter" type="text" placeholder="Twitter Link" >
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="linkedin" type="text" placeholder="Linkedin Link">
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="linkedin" type="text" placeholder="Linkedin Link" >
 
-            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="pic" type="file" placeholder="Enter Here....">
+            <input class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;" name="pic" type="file" placeholder="Enter Here...." required="">
 
             <button type=submit class="btn btn-outline-primary btn-block py-3 btn-lg" style="border-radius:15px;">Register</button>
           </form>
